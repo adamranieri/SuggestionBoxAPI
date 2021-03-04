@@ -32,8 +32,17 @@ public class SuggestionController {
         this.suggestionService.createSuggestion(suggestion);
         ctx.status(201);
         ctx.result("You created a suggestion");
-
     };
 
-
+    public Handler deleteSuggestionById = ctx -> {
+        int suggestionId = Integer.parseInt(ctx.pathParam("id"));
+        boolean result = this.suggestionService.deleteSuggestionById(suggestionId);
+        if (result){
+            ctx.status(200);
+            ctx.result("Suggestion "+ suggestionId +" deleted");
+        }else{
+            ctx.status(404);
+            ctx.result("Suggestion was not deleted");
+        }
+    };
 }

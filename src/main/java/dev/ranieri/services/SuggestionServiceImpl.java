@@ -42,4 +42,9 @@ public class SuggestionServiceImpl implements SuggestionService{
     public Suggestion getSuggestionById(int id) {
         return this.suggestionDAO.getSuggestionById(id);
     }
+
+    @Override
+    public boolean deleteSuggestionById(int id) {
+        return this.suggestionDAO.deleteSuggestionById(id);
+    }
 }
