@@ -27,4 +27,9 @@ public class SuggestionServiceImpl implements SuggestionService{
     public Suggestion getSuggestionById(int id) {
         return this.suggestionDAO.getSuggestionById(id);
     }
+
+    @Override
+    public Suggestion updateSuggestion(Suggestion suggestion) {
+        return this.updateSuggestion(suggestion);
+    }
 }

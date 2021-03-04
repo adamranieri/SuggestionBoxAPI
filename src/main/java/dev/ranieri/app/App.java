@@ -16,6 +16,7 @@ public class App {
 
         app.post("/suggestions", suggestionController.createSuggestion);
 
+        app.put("/suggestions/:d", suggestionController.updateSuggestion);
 
         app.start();
 
