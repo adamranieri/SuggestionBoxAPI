@@ -35,5 +35,17 @@ public class SuggestionController {
 
     };
 
+    public Handler updateSuggestion = ctx -> {
+        String body = ctx.body();
+        Gson gson = new Gson();
+        Suggestion suggestion = gson.fromJson(body, Suggestion.class);
+        int id = Integer.parseInt(ctx.pathParam("id"));
+        suggestion.setId(id);
+
+        Suggestion result = this.suggestionService.updateSuggestion(suggestion);
+        String resultJSON = gson.toJson(result);
+
+        ctx.result(resultJSON);
+    };
 
 }
