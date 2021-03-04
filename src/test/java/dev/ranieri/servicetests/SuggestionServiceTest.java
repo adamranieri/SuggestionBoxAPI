@@ -54,4 +54,12 @@ public class SuggestionServiceTest {
         }
 
     }
+
+    @Test
+    void search_by_keyword(){
+        Set<Suggestion> testSet = this.suggestionService.getSuggestionByKeyword("M");
+
+        Assertions.assertEquals(2, testSet.size());
+        System.out.println(testSet);
+    }
 }
