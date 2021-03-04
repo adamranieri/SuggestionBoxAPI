@@ -6,6 +6,7 @@ import io.javalin.Javalin;
 public class App {
 
     public static void main(String[] args) {
+        // small little edit
         Javalin app = Javalin.create();
 
         SuggestionController suggestionController = new SuggestionController();
