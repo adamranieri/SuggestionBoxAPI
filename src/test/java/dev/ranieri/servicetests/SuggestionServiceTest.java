@@ -1,6 +1,7 @@
 package dev.ranieri.servicetests;
 
 import dev.ranieri.daos.SuggestionDAO;
+import dev.ranieri.daos.SuggestionDaoLocal;
 import dev.ranieri.entities.Suggestion;
 import dev.ranieri.services.SuggestionService;
 import dev.ranieri.services.SuggestionServiceImpl;
@@ -54,4 +55,6 @@ public class SuggestionServiceTest {
         }
 
     }
+
+
 }

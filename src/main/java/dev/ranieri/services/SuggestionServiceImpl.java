@@ -15,6 +15,14 @@ public class SuggestionServiceImpl implements SuggestionService{
 
     @Override
     public Suggestion createSuggestion(Suggestion suggestion) {
+        if (suggestion.getPriority() > 10){
+            suggestion.setPriority(10);
+        }else if(suggestion.getPriority() < 0){
+            suggestion.setPriority(0);
+        }
+
+        suggestion.setDateSubmitted(System.currentTimeMillis()/1000);
+
         return this.suggestionDAO.createSuggestion(suggestion);
     }
 
