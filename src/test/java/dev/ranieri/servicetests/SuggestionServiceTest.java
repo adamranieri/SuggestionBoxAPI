@@ -26,8 +26,8 @@ public class SuggestionServiceTest {
 
     @BeforeEach
     void setUp(){
-        Suggestion suggestion1 = new Suggestion(0,"More breaks",100,0);
-        Suggestion suggestion2 = new Suggestion(0,"Coffe Maker is broken",-10,0);
+        Suggestion suggestion1 = new Suggestion(0,"More breaks",10,0);
+        Suggestion suggestion2 = new Suggestion(0,"Coffe Maker is broken",7,0);
         Suggestion suggestion3 = new Suggestion(0,"4 day work week",9,0);
 
         Set<Suggestion> suggestionSet = new HashSet<>();
@@ -35,7 +35,6 @@ public class SuggestionServiceTest {
         suggestionSet.add(suggestion2);
         suggestionSet.add(suggestion3);
         Mockito.when(suggestionDAO.getAllSuggestions()).thenReturn(suggestionSet);
-        Mockito.when(suggestionDAO.createSuggestion(suggestion1)).thenReturn(suggestion1);
         this.suggestionService = new SuggestionServiceImpl(this.suggestionDAO);
     }
 
