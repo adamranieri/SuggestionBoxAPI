@@ -10,6 +10,8 @@ public interface SuggestionService {
 
     Set<Suggestion> getAllSuggestions();
 
+    Set<Suggestion> getSuggestionByKeyword(String keyword);
+
     Suggestion getSuggestionById(int id);
 
     Suggestion updateSuggestion(Suggestion suggestion);

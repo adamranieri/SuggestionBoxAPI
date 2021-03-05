@@ -14,8 +14,15 @@ public class SuggestionController {
 
     public Handler getAllSuggestions = ctx -> {
         Gson gson = new Gson();
-        String json = gson.toJson(this.suggestionService.getAllSuggestions());
-        ctx.result(json);
+        String keyword = ctx.queryParam("keyword");
+        if(keyword == null) {
+            String json = gson.toJson(this.suggestionService.getAllSuggestions());
+            ctx.result(json);
+        }else{
+            String json = gson.toJson(this.suggestionService.getSuggestionByKeyword(keyword));
+            ctx.result(json);
+            ctx.status(418);
+        }
     };
 
     public Handler getSuggestionById = ctx -> {
@@ -47,5 +54,7 @@ public class SuggestionController {
 
         ctx.result(resultJSON);
     };
+
+
 
 }

@@ -39,6 +39,19 @@ public class SuggestionServiceImpl implements SuggestionService{
     }
 
     @Override
+    public Set<Suggestion> getSuggestionByKeyword(String keyword) {
+        Set<Suggestion> allSuggestions = this.getAllSuggestions();
+        Set<Suggestion> keywordSuggestions = new HashSet<>();
+        for(Suggestion a : allSuggestions){
+            if(a.getDescription().contains(keyword)){
+                keywordSuggestions.add(a);
+            }
+
+        }
+        return keywordSuggestions;
+    }
+
+    @Override
     public Suggestion getSuggestionById(int id) {
         return this.suggestionDAO.getSuggestionById(id);
     }
