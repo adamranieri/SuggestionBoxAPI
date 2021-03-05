@@ -14,6 +14,6 @@ public interface SuggestionService {
 
     Suggestion getSuggestionById(int id);
 
-
+    Suggestion updateSuggestion(Suggestion suggestion);
 
 }
