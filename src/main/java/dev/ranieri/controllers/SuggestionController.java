@@ -14,8 +14,15 @@ public class SuggestionController {
 
     public Handler getAllSuggestions = ctx -> {
         Gson gson = new Gson();
-        String json = gson.toJson(this.suggestionService.getAllSuggestions());
-        ctx.result(json);
+        String keyword = ctx.queryParam("keyword");
+        if(keyword == null) {
+            String json = gson.toJson(this.suggestionService.getAllSuggestions());
+            ctx.result(json);
+        }else{
+            String json = gson.toJson(this.suggestionService.getSuggestionByKeyword(keyword));
+            ctx.result(json);
+            ctx.status(418);
+        }
     };
 
     public Handler getSuggestionById = ctx -> {
@@ -34,6 +41,7 @@ public class SuggestionController {
         ctx.result("You created a suggestion");
     };
 
+
     public Handler deleteSuggestionById = ctx -> {
         int suggestionId = Integer.parseInt(ctx.pathParam("id"));
         boolean result = this.suggestionService.deleteSuggestionById(suggestionId);
@@ -45,4 +53,20 @@ public class SuggestionController {
             ctx.result("Suggestion was not deleted");
         }
     };
+
+    public Handler updateSuggestion = ctx -> {
+        String body = ctx.body();
+        Gson gson = new Gson();
+        Suggestion suggestion = gson.fromJson(body, Suggestion.class);
+        int id = Integer.parseInt(ctx.pathParam("id"));
+        suggestion.setId(id);
+
+        Suggestion result = this.suggestionService.updateSuggestion(suggestion);
+        String resultJSON = gson.toJson(result);
+
+        ctx.result(resultJSON);
+    };
+
+
+
 }

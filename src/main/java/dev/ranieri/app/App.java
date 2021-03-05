@@ -19,6 +19,8 @@ public class App {
 
         app.delete("/suggestions/:id",suggestionController.deleteSuggestionById);
 
+        app.put("/suggestions/:id", suggestionController.updateSuggestion);
+
         app.start();
 
     }
