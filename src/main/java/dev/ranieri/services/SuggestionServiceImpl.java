@@ -57,7 +57,11 @@ public class SuggestionServiceImpl implements SuggestionService{
     }
 
     @Override
+    public boolean deleteSuggestionById(int id) {
+        return this.suggestionDAO.deleteSuggestionById(id);
+
     public Suggestion updateSuggestion(Suggestion suggestion) {
         return this.suggestionDAO.updateSuggestion(suggestion);
+
     }
 }

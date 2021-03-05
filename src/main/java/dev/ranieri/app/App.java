@@ -15,7 +15,9 @@ public class App {
 
         app.get("/suggestions/:id",suggestionController.getSuggestionById);
 
-        app.post("/suggestions", suggestionController.createSuggestion);
+        app.post("/suggestions",suggestionController.createSuggestion);
+
+        app.delete("/suggestions/:id",suggestionController.deleteSuggestionById);
 
         app.put("/suggestions/:id", suggestionController.updateSuggestion);
 
